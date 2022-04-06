@@ -2,7 +2,9 @@
 SpaceShip game made in Unity
 
 ## Main Menu
-![2022-04-06-03-29-47](https://user-images.githubusercontent.com/49732872/161878404-35c5fc0b-1ba3-4029-bbd4-75bf73feaf68.gif)
+![MainMenu](https://user-images.githubusercontent.com/49732872/161879741-b336daba-92ff-4a8c-85ae-b9f853a159a0.gif)
 
 ## Game Menu
-![2022-04-06-03-30-26](https://user-images.githubusercontent.com/49732872/161878431-e14c76cb-bd2a-420b-bb6a-ca7cd6e7999c.gif)
+![GameMenu](https://user-images.githubusercontent.com/49732872/161879472-6d5a5262-bdf6-4fd0-9457-c0c71049679b.gif)
+
+
