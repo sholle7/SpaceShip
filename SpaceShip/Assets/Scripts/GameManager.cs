@@ -174,7 +174,10 @@ public class GameManager : MonoBehaviour
 
     public void Upgrade()
     {
-        if (_shipLevel >= 15) return;
+        if (_shipLevel >= 15)
+        {          
+            return;
+        }
         _shipLevel++;
         _coins -= _requiredCoinsForUpgrade;
         _coinsText.text = _coins.ToString();

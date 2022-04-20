@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     
     static private GameObject _hitEffect;
-
+    [SerializeField] private int _damage;
     private Rigidbody2D _rb;
     private float _velocity = 15f;
 
@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour
             GameObject hit = Instantiate(_hitEffect, _rb.transform.position, _rb.transform.rotation);
             Destroy(hit, 0.2f);
 
-            collider.GetComponent<Obstacle>().TakeDamage();
+            collider.GetComponent<Obstacle>().TakeDamage(_damage);
             Destroy(gameObject);
         }
     }

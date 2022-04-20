@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Obstacle : MonoBehaviour {
+    private static int _currentHealth = 5;
     private int _health;
     private const float _velocity =5.5f;
     static private GameObject _explodeEffect;
     private Rigidbody2D _rb;
+    
     void Awake()
     {
-        _health = 5;
+        _health = _currentHealth;
         if(_explodeEffect==null)_explodeEffect = (GameObject)Resources.Load("Prefabs/Effects/ExplodeEffect");
         _rb = gameObject.GetComponent<Rigidbody2D>();
     }
@@ -27,10 +29,10 @@ public class Obstacle : MonoBehaviour {
     {
         return transform.position.y < -4;
     }
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
-        _health--;
-        if (_health == 0)
+        _health-=damage;
+        if (_health <= 0)
         {
             GameObject explode = Instantiate(_explodeEffect,_rb.transform.position,_rb.transform.rotation);
             Destroy(explode, 0.3f);
@@ -38,5 +40,13 @@ public class Obstacle : MonoBehaviour {
             Destroy(gameObject);
             GameManager._instance.AddScore();
         }
+    }
+    public static void UpgradeObstacle()
+    {
+        _currentHealth += 5;
+    }
+    public static void ResetVariables()
+    {
+        _currentHealth = 5;
     }
 }

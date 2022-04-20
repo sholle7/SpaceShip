@@ -21,11 +21,12 @@ public class Buttons : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler 
     }
     public void StartGame()
     {
-        Invoke(nameof(LoadNextScene), 0.2f); 
+        Invoke(nameof(LoadNextScene), 0.2f);
+        Spawner.ResetVariables();
+        Obstacle.ResetVariables();
     }
     public void LoadNextScene()
-    {
-        
+    {      
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -39,8 +40,10 @@ public class Buttons : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler 
         image.enabled = false;
     }
     public void ReloadGame()
-    {
+    {      
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Spawner.ResetVariables();
+        Obstacle.ResetVariables();
     }
     public void ResumeGame()
     {
